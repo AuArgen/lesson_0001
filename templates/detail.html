@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Категория {{ choose_category.name }}</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background: #f6f6f6;
+            font-size: 1rem;
+        }
+
+        .block {
+            display: flex;
+            gap:1%;
+            width: 1350px;
+            margin: 5rem auto;
+            flex-wrap: wrap;
+        }
+        .block .card {
+            margin: 0.5rem 0;
+            width: 24%;
+            box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.1);
+            background: white;
+        }
+        .block .card .img {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: pink;
+            transition: 0.8s all ease-in-out;
+        }
+        .block .card .img img{
+            width: 100%;
+            min-height: 100%;
+            cursor: pointer;
+        }
+
+        .block .card .img:hover img {
+            transform: scale(1.25);
+        }
+
+        .block .card .description, .block .card .name {
+            margin: 1rem;
+            max-height: 50px;
+            overflow: hidden;
+        }
+
+        .detail {
+            width: calc(100% - 5rem);
+            padding: 5rem;
+            background: white;
+        }
+        .detail .img {
+            width: 45%;
+            float: left;
+            margin-right: 1rem;
+        }
+
+        .detail .description {
+            font-size: 1.3rem;
+        }
+        .detail img {
+            max-width: 100%;
+        }
+
+        header  {
+            height: 50px;
+            background: white;
+            position: sticky;
+            top:0;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            gap:2rem;
+            font-size: 1.3rem;
+            padding: 0 22rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="/">
+        Башкы бет
+    </a>
+</header>
+
+<h1>
+    <br>
+    <center>
+        Категория {{ choose_category.name }}
+    </center>
+    <br>
+</h1>
+<hr>
+
+<div class="block">
+    <div class="detail">
+        <div class="img">
+            <img src="{{ choose_category.image }}" alt="">
+        </div>
+        <div class="description">
+            {{ choose_category.description }}
+        </div>
+    </div>
+</div>
+
+
+<h1>
+    <center>
+        Categories
+    </center>
+</h1>
+<hr>
+    <div class="block">
+        {% for category in categories %}
+        	<div class="card">
+                <div class="img">
+                    <img src="{{ category.image }}" alt="">
+                </div>
+                <center class="name">
+                    <b>
+                        {{ category.name }}
+                    </b>
+                </center>
+                 <div   class="description">
+                     <a href="/category/{{ category.id }}">
+                     {{ category.description }}
+                     </a>
+                 </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</body>
+</html>
