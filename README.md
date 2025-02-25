@@ -1,7 +1,7 @@
 # lesson_0001
 * Командалар
 * pip install django-admin
-- (бул проектке админ панел кошуу) жана settings.py га кошуу керек INSTALLED_APPS = [] ка 
+--- (бул проектке админ панел кошуу) жана settings.py га кошуу керек INSTALLED_APPS = [] ка 
 * python manage.py runserver
 - (бул проекти запуск кылуу)
 * python manage.py startapp yourappname
