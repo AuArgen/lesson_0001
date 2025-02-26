@@ -9,6 +9,6 @@ class Book(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=10)
     image = models.CharField(max_length=255)
     published = models.BooleanField(default=False)
-
+    show = models.CharField(max_length=100, default=" ")
     def __str__(self):
         return self.title
