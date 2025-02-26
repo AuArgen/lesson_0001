@@ -28,6 +28,7 @@
             width: 24%;
             box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.1);
             background: white;
+            position: relative;
         }
         .block .card .img {
             display: flex;
@@ -84,6 +85,19 @@
             font-size: 1.3rem;
             padding: 0 22rem;
         }
+
+        .card .price {
+            position: absolute;
+            z-index: 100;
+            top: 10px;
+            left: 0;
+            background: tomato;
+            color: white;
+            font-weight: 700;
+            font-size: 1.25rem;
+            padding: 5px 15px;
+            box-shadow: 0 0  5px 0 #ccc;
+        }
     </style>
 </head>
 <body>
@@ -113,6 +127,40 @@
         </div>
     </div>
 </div>
+
+
+<h1>
+    <center>
+        Books
+    </center>
+</h1>
+    <div class="block">
+        {% for book in books %}
+        	<div class="card">
+                <div class="price">
+                    {{ book.price }}сом
+                </div>
+                <div class="img">
+                    <img src="{{ book.image }}" alt="">
+                </div>
+                <p>
+                    Автор: <i>{{ book.author }}</i>
+                </p>
+                <center class="name">
+                    <b>
+                        {{ book.title }}
+                    </b>
+                </center>
+                 <div   class="description">
+                     <a href="/category/{{ book.id }}">
+                     {{ book.description }}
+                     </a>
+                 </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
 
 
 <h1>
